@@ -57,7 +57,12 @@ barberultra/
 - [x] Configuração do PostgreSQL
 - [x] Conexão com banco de dados
 - [x] API FastAPI online
-- [ ] Cadastro de clientes
+- [x] Cadastro de clientes
+    [x] Criar cliente
+    [x] Listar cliente
+    [x] Buscar cliente por id
+    [x] Buscar cliente por telefone
+    [x] Validar telefone duplicado
 - [ ] Cadastro de serviços
 - [ ] Cadastro de agendamentos
 - [ ] Consulta de agenda
