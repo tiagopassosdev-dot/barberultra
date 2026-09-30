@@ -63,7 +63,7 @@ barberultra/
     - [x] Buscar cliente por id
     - [x] Buscar cliente por telefone
     - [x] Validar telefone duplicado
-- [ ] Cadastro de serviços
+- [x] Cadastro de serviços
 - [ ] Cadastro de agendamentos
 - [ ] Consulta de agenda
 
