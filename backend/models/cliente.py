@@ -4,7 +4,7 @@ from sqlalchemy import String
 
 from backend.database.base import Base
 
-
+# Classe que representa a tabela "clientes" no banco de dados
 class Cliente(Base):
     __tablename__ = "clientes"
 

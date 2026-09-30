@@ -8,16 +8,8 @@ from pydantic import BaseModel, Field
 class ClienteCreate(BaseModel):
 
     # Campo obrigatório (...)
-    nome: str = Field(
-        ...,
-        min_length=3,
-        max_length=100
-    )
-    telefone: str = Field(
-        ...,
-        min_length=10,
-        max_length=20
-    )
+    nome: str = Field( ..., min_length=3, max_length=100)
+    telefone: str = Field(..., min_length=10, max_length=20)
 # Schema usado para DEVOLVER dados ao usuário
 class ClienteResponse(BaseModel):
     id: int
