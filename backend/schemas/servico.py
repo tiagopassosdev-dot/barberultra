@@ -13,6 +13,7 @@ class ServicoResponse(BaseModel):
     nome: str
     duracao_minutos: int
     preco: float
+    ativo: bool
 
     model_config = {
         "from_attributes": True

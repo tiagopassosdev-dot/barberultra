@@ -16,7 +16,7 @@ router = APIRouter(
     prefix="/servicos",
     tags=["Serviços"]
 )
-
+# A rota criar_servico permite que o usuário cadastre um novo serviço no banco de dados
 @router.post(
     "",
     response_model=ServicoResponse,
@@ -55,6 +55,7 @@ def criar_servico(
 
     return novo_servico
 
+# listar_servicos retorna todos os serviços cadastrados no banco de dados
 @router.get(
     "",
     response_model=list[ServicoResponse]
@@ -64,3 +65,26 @@ def listar_servicos(
 ):
 
     return db.query(Servico).all()
+# buscar_servico retorna um serviço específico pelo seu ID
+@router.get(
+    "/{servico_id}",
+    response_model=ServicoResponse
+)
+def buscar_servico(
+    servico_id: int,
+    db: Session = Depends(get_db)
+):
+
+    servico = (
+        db.query(Servico)
+        .filter(Servico.id == servico_id)
+        .first()
+    )
+
+    if not servico:
+        raise HTTPException(
+            status_code=404,
+            detail="Serviço não encontrado"
+        )
+
+    return servico

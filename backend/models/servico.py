@@ -1,3 +1,4 @@
+from sqlalchemy import Boolean
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import Numeric
@@ -29,4 +30,10 @@ class Servico(Base):
     preco = Column(
         Numeric(10, 2),
         nullable=False
+    )
+# Campo que indica se o serviço está ativo ou não
+    ativo = Column(
+        Boolean,
+        nullable=False,
+        default=True
     )
