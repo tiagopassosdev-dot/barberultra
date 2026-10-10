@@ -64,6 +64,7 @@ barberultra/
     - [x] Buscar cliente por telefone
     - [x] Validar telefone duplicado
 - [x] Cadastro de serviços
+- [x] Modelagem de agendmentos
 - [ ] Cadastro de agendamentos
 - [ ] Consulta de agenda
 
