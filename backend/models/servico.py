@@ -22,11 +22,6 @@ class Servico(Base):
         unique=True
     )
 
-    duracao_minutos = Column(
-        Integer,
-        nullable=False
-    )
-
     preco = Column(
         Numeric(10, 2),
         nullable=False

@@ -41,11 +41,7 @@ def criar_servico(
             detail="Serviço já cadastrado"
         )
 
-    novo_servico = Servico(
-        nome=servico.nome,
-        duracao_minutos=servico.duracao_minutos,
-        preco=servico.preco
-    )
+    novo_servico = Servico(nome=servico.nome, preco=servico.preco)
 
     db.add(novo_servico)
 
