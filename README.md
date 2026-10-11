@@ -65,6 +65,7 @@ barberultra/
     - [x] Validar telefone duplicado
 - [x] Cadastro de serviços
 - [x] Modelagem de agendmentos
+    - [x] Criado rota post para criar agendamento
 - [ ] Cadastro de agendamentos
 - [ ] Consulta de agenda
 
