@@ -13,6 +13,4 @@ class ServicoResponse(BaseModel):
     preco: float
     ativo: bool
 
-    model_config = {
-        "from_attributes": True
-    }
+    model_config = {"from_attributes": True}

@@ -3,7 +3,8 @@ from pydantic import BaseModel
 
 class AgendamentoCreate(BaseModel):
     cliente_id: int
-    servico_id: int
+    profissional_id: int
+    servicos: list[int]
     data_hora: datetime
 
 class AgendamentoResponse(BaseModel):
@@ -15,4 +16,3 @@ class AgendamentoResponse(BaseModel):
     model_config = {
         "from_attributes": True
     }  # permite que o Pydantic crie o schema a partir de um objeto
-    
