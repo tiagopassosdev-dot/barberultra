@@ -1,23 +1,80 @@
 # BarberUltra 💈
 
-Sistema de agendamento inteligente para barbearias com integração futura ao WhatsApp.
+Sistema inteligente de agendamento para barbearias com foco em atendimento automatizado via WhatsApp.
 
-## Visão do Projeto
+## Objetivo
 
-O objetivo do BarberUltra é permitir que clientes realizem agendamentos diretamente pelo WhatsApp de forma simples e rápida, sem necessidade de cadastro ou instalação de aplicativos.
+O BarberUltra nasceu para simplificar o processo de agendamento em barbearias, eliminando a necessidade de cadastros, aplicativos adicionais ou atendimento manual para marcação de horários.
 
-O sistema será responsável por:
+A proposta é permitir que o cliente realize todo o processo diretamente pelo WhatsApp, enquanto a barbearia acompanha os agendamentos através de um painel administrativo.
 
-- Gerenciar clientes
-- Gerenciar serviços da barbearia
-- Gerenciar agendamentos
-- Disponibilizar painel administrativo
-- Automatizar atendimento via WhatsApp
-- Utilizar IA para interpretação de mensagens
+---
+
+## Como Funcionará
+
+### Fluxo do Cliente
+
+1. Cliente envia mensagem para o WhatsApp da barbearia.
+2. Sistema identifica o telefone.
+3. Caso seja o primeiro contato, solicita o nome.
+4. Cliente escolhe o profissional.
+5. Cliente escolhe uma data disponível.
+6. Cliente escolhe um horário disponível.
+7. Cliente escolhe um ou mais serviços.
+8. Sistema confirma o agendamento.
+9. A agenda do profissional é atualizada automaticamente.
+
+### Fluxo da Barbearia
+
+- Cadastro de profissionais.
+- Cadastro de serviços.
+- Gerenciamento de disponibilidade.
+- Visualização da agenda diária.
+- Controle de horários disponíveis.
+- Atendimento automatizado via WhatsApp.
+
+---
+
+## Regras de Negócio
+
+### Clientes
+
+- Não existe cadastro tradicional.
+- O telefone do WhatsApp identifica o cliente.
+- O nome é solicitado apenas no primeiro contato.
+- Em contatos futuros, o cliente é reconhecido automaticamente.
+
+### Serviços
+
+- Um agendamento pode possuir múltiplos serviços.
+- Cada serviço representa um slot de 30 minutos.
+
+Exemplos:
+
+| Serviços | Tempo Total |
+|-----------|------------|
+| Corte | 30 min |
+| Corte + Barba | 60 min |
+| Corte + Barba + Sobrancelha | 90 min |
+
+### Profissionais
+
+- Cada profissional possui sua própria agenda.
+- Um profissional pode abrir ou fechar dias específicos para agendamento.
+- O cliente escolhe o profissional antes de selecionar os horários.
+
+### Agendamentos
+
+- Um agendamento pertence a um cliente.
+- Um agendamento pertence a um profissional.
+- Um agendamento pode possuir múltiplos serviços.
+- O sistema deverá impedir conflitos de horário.
+
+---
 
 ## Tecnologias
 
-### Back-end
+### Backend
 
 - Python
 - FastAPI
@@ -31,11 +88,19 @@ O sistema será responsável por:
 - Git
 - GitHub
 
+### Futuras Integrações
+
+- WhatsApp Business API
+- Inteligência Artificial
+- Dashboard Web
+
+---
+
 ## Estrutura do Projeto
 
 ```text
 barberultra/
-│
+
 ├── backend/
 │   ├── api/
 │   ├── database/
@@ -49,44 +114,79 @@ barberultra/
 └── requirements.txt
 ```
 
-## Funcionalidades Planejadas
+---
 
-### MVP
+## Funcionalidades Implementadas
+
+### Infraestrutura
 
 - [x] Estrutura inicial do projeto
 - [x] Configuração do PostgreSQL
-- [x] Conexão com banco de dados
-- [x] API FastAPI online
-- [x] Cadastro de clientes
-    - [x] Criar cliente
-    - [x] Listar cliente
-    - [x] Buscar cliente por id
-    - [x] Buscar cliente por telefone
-    - [x] Validar telefone duplicado
-- [x] Cadastro de serviços
-- [x] Modelagem de agendmentos
-    - [x] Criado rota post para criar agendamento
-- [ ] Cadastro de agendamentos
-- [ ] Consulta de agenda
+- [x] Integração com FastAPI
+- [x] Configuração via arquivo .env
 
-### Futuro
+### Clientes
+
+- [x] Criar cliente
+- [x] Listar clientes
+- [x] Buscar cliente por ID
+- [x] Buscar cliente por telefone
+- [x] Validação de telefone duplicado
+
+### Serviços
+
+- [x] Criar serviço
+- [x] Listar serviços
+- [x] Validação de serviço duplicado
+
+### Profissionais
+
+- [x] Criar profissional
+- [x] Listar profissionais
+- [x] Controle de profissionais ativos
+
+### Agendamentos
+
+- [x] Modelagem da entidade Agendamento
+- [x] Modelagem da entidade AgendamentoServico
+- [x] Relacionamento entre clientes e serviços
+- [x] Relacionamento entre profissionais e agendamentos
+- [x] Estrutura inicial da rota de criação de agendamento
+
+---
+
+## Roadmap
+
+### Próxima Sprint
+
+- [ ] Finalizar criação de agendamentos
+- [ ] Calcular duração automaticamente
+- [ ] Validar conflito de horários
+- [ ] Consultar agenda por profissional
+- [ ] Consultar horários disponíveis
+
+### Futuras Funcionalidades
 
 - [ ] Dashboard administrativo
+- [ ] Agenda visual
 - [ ] Integração com WhatsApp
 - [ ] Confirmação automática de horários
 - [ ] Reagendamento automático
+- [ ] Lembretes automáticos
 - [ ] Assistente com IA
 - [ ] Deploy em nuvem
 
-## Como executar
+---
 
-### 1. Clonar repositório
+## Como Executar o Projeto
+
+### Clonar o Repositório
 
 ```bash
 git clone https://github.com/SEU_USUARIO/barberultra.git
 ```
 
-### 2. Criar ambiente virtual
+### Criar Ambiente Virtual
 
 ```bash
 python3 -m venv venv
@@ -96,30 +196,35 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Instalar dependências
+### Instalar Dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configurar variáveis de ambiente
-
-Copie o arquivo:
+### Configurar Variáveis de Ambiente
 
 ```bash
 cp .env.example .env
 ```
 
-Preencha suas credenciais do PostgreSQL.
+Preencha as credenciais do PostgreSQL.
 
-### 5. Executar
+### Executar a API
 
 ```bash
 uvicorn backend.main:app --reload
 ```
 
-## Status
+### Documentação Swagger
 
+```text
+http://localhost:8000/docs
+```
+
+---
+
+## Status
  Em desenvolvimento
 
-Primeira versão do projeto sendo construída utilizando FastAPI e PostgreSQL.
+Projeto em construção utilizando FastAPI, PostgreSQL e arquitetura voltada para automação de atendimento e agendamento em barbearias.
