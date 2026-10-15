@@ -154,6 +154,37 @@ barberultra/
 - [x] Estrutura inicial da rota de criação de agendamento
 
 ---
+### Agenda
+
+- [x] Consultar agenda por profissional
+- [x] Consultar agenda por profissional e data
+- [x] Exibir cliente agendado
+- [x] Exibir telefone do cliente
+- [x] Exibir serviços contratados
+
+### Arquitetura Planejada
+
+#### Agenda Aberta
+
+Permite que cada profissional escolha os dias que deseja atender.
+
+#### Bloqueios
+
+Permite reservar períodos para:
+
+- Almoço
+- Consultas médicas
+- Compromissos pessoais
+- Treinamentos
+- Férias
+
+#### Horários Disponíveis
+
+Os horários serão calculados com base em:
+
+- Agenda aberta
+- Agendamentos existentes
+- Bloqueios cadastrados
 
 ## Roadmap
 

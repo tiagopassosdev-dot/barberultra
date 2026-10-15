@@ -10,7 +10,7 @@ from backend.models.agendamento import Agendamento
 from backend.models.agendamento_servico import AgendamentoServico
 from backend.api.agendamento import router as agendamento_router
 from backend.models.profissional import Profissional
-from backend.api.profissionais import router as profissionais_router
+from backend.api.profissional import router as profissionais_router
 
 # cria tabelas
 Base.metadata.create_all(bind=engine)

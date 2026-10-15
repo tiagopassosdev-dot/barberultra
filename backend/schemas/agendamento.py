@@ -5,11 +5,13 @@ class AgendamentoCreate(BaseModel):
     cliente_id: int
     profissional_id: int
     servicos: list[int]
-    data_hora: datetime
+    data_hora_inicio: datetime
 
 class AgendamentoResponse(BaseModel):
     id: int
     cliente_id: int
+    profissional_id: int
+    servicos: list[int]
     data_hora_inicio: datetime
     data_hora_fim: datetime
     status: str
