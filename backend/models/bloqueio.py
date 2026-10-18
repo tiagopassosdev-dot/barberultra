@@ -8,7 +8,7 @@ from sqlalchemy import String
 
 from backend.database.base import Base
 
-
+# classe que represnta horarios que o profissional não poderá atender os clientes
 class Bloqueio(Base):
     __tablename__ = "bloqueios"
 

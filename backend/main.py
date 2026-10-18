@@ -11,6 +11,11 @@ from backend.models.agendamento_servico import AgendamentoServico
 from backend.api.agendamento import router as agendamento_router
 from backend.models.profissional import Profissional
 from backend.api.profissional import router as profissionais_router
+from backend.models.agenda_aberta import AgendaAberta
+from backend.models.bloqueio import Bloqueio
+from backend.api.agenda_aberta import router as agenda_aberta_router
+
+from backend.api.bloqueios import router as bloqueios_router
 
 # cria tabelas
 Base.metadata.create_all(bind=engine)
@@ -20,7 +25,9 @@ app = FastAPI(title="BarberUltra API")
 app.include_router(clientes_router)  # adiciona as rotas de clientes ao app
 app.include_router(servicos_router)  # adiciona as rotas de serviços ao app
 app.include_router(agendamento_router)  # adiciona as rotas de agendamentos ao app
-app.include_router(profissionais_router) # adiciona as rotas de profissionais ao app
+app.include_router(profissionais_router)  # adiciona as rotas de profissionais ao app
+app.include_router(agenda_aberta_router) # adiciona as rotas de agenda aberta ao app
+app.include_router(bloqueios_router) # adiciona as rotas de bloqueios ao app
 
 
 @app.get("/")

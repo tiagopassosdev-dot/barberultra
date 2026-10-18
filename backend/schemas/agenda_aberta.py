@@ -1,18 +1,18 @@
-# backend/models/agenda_aberta.py
+# backend/schemas/agenda_aberta.py
 
-from sqlalchemy import Column
-from sqlalchemy import Date
-from sqlalchemy import ForeignKey
-from sqlalchemy import Integer
+from datetime import date
 
-from backend.database.base import Base
+from pydantic import BaseModel
 
 
-class AgendaAberta(Base):
-    __tablename__ = "agenda_aberta"
+class AgendaAbertaCreate(BaseModel):
+    profissional_id: int
+    data: date
 
-    id = Column(Integer, primary_key=True, index=True)
 
-    profissional_id = Column(Integer, ForeignKey("profissionais.id"), nullable=False)
+class AgendaAbertaResponse(BaseModel):
+    id: int
+    profissional_id: int
+    data: date
 
-    data = Column(Date, nullable=False)
+    model_config = {"from_attributes": True}
