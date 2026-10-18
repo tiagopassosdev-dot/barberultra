@@ -1,4 +1,4 @@
-# BarberUltra 💈
+# BarberUltra 
 
 Sistema inteligente de agendamento para barbearias com foco em atendimento automatizado via WhatsApp.
 
@@ -62,6 +62,7 @@ Exemplos:
 - Cada profissional possui sua própria agenda.
 - Um profissional pode abrir ou fechar dias específicos para agendamento.
 - O cliente escolhe o profissional antes de selecionar os horários.
+
 
 ### Agendamentos
 
@@ -152,6 +153,10 @@ barberultra/
 - [x] Relacionamento entre clientes e serviços
 - [x] Relacionamento entre profissionais e agendamentos
 - [x] Estrutura inicial da rota de criação de agendamento
+- [x] Criar agendamento
+- [x] Múltiplos serviços por agendamento
+- [x] Cálculo automático da duração
+- [x] Validação de conflito de horários
 
 ---
 ### Agenda
@@ -161,6 +166,9 @@ barberultra/
 - [x] Exibir cliente agendado
 - [x] Exibir telefone do cliente
 - [x] Exibir serviços contratados
+- [x] Abrir agenda para datas específicas
+- [x] Cadastrar bloqueios de horário
+- [x] Consultar horários disponíveis
 
 ### Arquitetura Planejada
 
@@ -178,33 +186,31 @@ Permite reservar períodos para:
 - Treinamentos
 - Férias
 
-#### Horários Disponíveis
+### Horários Disponíveis
 
-Os horários serão calculados com base em:
+Um horário só será considerado disponível quando:
 
-- Agenda aberta
-- Agendamentos existentes
-- Bloqueios cadastrados
+- A agenda estiver aberta para a data.
+- Não existir bloqueio cadastrado.
+- Não existir agendamento ativo para o período.
 
 ## Roadmap
 
 ### Próxima Sprint
 
-- [ ] Finalizar criação de agendamentos
-- [ ] Calcular duração automaticamente
-- [ ] Validar conflito de horários
-- [ ] Consultar agenda por profissional
-- [ ] Consultar horários disponíveis
+- [ ] Cancelamento de agendamento
+- [ ] Reagendamento
+- [ ] Agenda recorrente para clientes fixos
+- [ ] Dashboard administrativo
+- [ ] Tela de agenda diária
+- [ ] Integração com WhatsApp
 
 ### Futuras Funcionalidades
 
-- [ ] Dashboard administrativo
-- [ ] Agenda visual
-- [ ] Integração com WhatsApp
 - [ ] Confirmação automática de horários
-- [ ] Reagendamento automático
+- [ ] Cancelamento via WhatsApp
 - [ ] Lembretes automáticos
-- [ ] Assistente com IA
+- [ ] Inteligência artificial para interpretar mensagens
 - [ ] Deploy em nuvem
 
 ---
